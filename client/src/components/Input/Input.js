@@ -8,7 +8,7 @@ import axios from "axios";
 import validator from "validator";
 
 // Rendering the children inside the background div
-const Input = ({ setOutput }) => {
+const Input = ({ getOutput }) => {
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
   const [label, setLabel] = useState("Input URL");
@@ -21,11 +21,11 @@ const Input = ({ setOutput }) => {
       setLabel("Bad URL format detected!");
       return;
     }
-
+    getOutput("testing 123");
     axios
       .post("http://localhost:3333/short", { origUrl: url })
       .then((res) => {
-        setOutput(res);
+        getOutput(res);
       })
       .catch((err) => {
         console.log(err.message);

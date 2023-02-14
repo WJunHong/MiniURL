@@ -4,10 +4,12 @@ import Output from "./components/Output";
 import { useState } from "react";
 
 const App = () => {
+  const [output, setOutput] = useState("");
+
   return (
     <div className="App">
-      <Input />
-      <Output />
+      <Input getOutput={setOutput} />
+      <Output miniUrl={output} />
     </div>
   );
 };

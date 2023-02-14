@@ -8,7 +8,10 @@ const Output = ({ miniUrl }) => {
   return (
     <div className={styles.container}>
       <Paper elevation={3} className={styles.inputContainer}>
-        {miniUrl}
+        <div>MiniURL:</div>
+        <a href={`${miniUrl}`} target="_blank">
+          {miniUrl}
+        </a>
       </Paper>
     </div>
   );
