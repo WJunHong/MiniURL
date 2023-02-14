@@ -6,14 +6,27 @@ import Button from "@mui/material/Button";
 
 // Rendering the children inside the background div
 const Output = ({ miniUrl, fullUrl }) => {
+  const copyUrl = () => {
+    navigator.clipboard.writeText(miniUrl);
+  };
   return (
     <div className={styles.container}>
       <Paper elevation={3} className={styles.outputContainer}>
-        <div>MiniURL</div>
+        <div>{!miniUrl ? "Create a MiniURL now!" : "MiniURL"}</div>
         <a href={`${fullUrl}`} target="_blank">
           {miniUrl}
         </a>
-        {miniUrl ? <Button variant="outlined">copy</Button> : null}
+        {miniUrl ? (
+          <div className={styles.bottomSegment}>
+            <Button
+              variant="outlined"
+              className={styles.copyButton}
+              onClick={copyUrl}
+            >
+              copy
+            </Button>
+          </div>
+        ) : null}
       </Paper>
     </div>
   );
