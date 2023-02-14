@@ -1,10 +1,11 @@
 .container {
   height: fit-content;
-  width: fit-content;
+  width: 50%;
+  min-width: 400px;
   margin-top: 10px;
 }
-.inputContainer {
-  width: 700px;
+.outputContainer {
+  width: 100%;
   height: 100px;
   display: flex;
   margin: auto;
@@ -13,7 +14,11 @@
   justify-content: center;
 }
 
-.inputContainer div {
+.outputContainer div {
   font-size: 18px;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
+}
+.outputContainer a {
+  color: blue;
+  text-decoration: none;
 }
