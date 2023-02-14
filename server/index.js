@@ -4,7 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
 const Url = require("./Url");
-const utils = require("../Util/util");
+const utils = require("./util");
 
 // configure dotenv
 dotenv.config();
@@ -33,6 +33,7 @@ app.post("/post/short", async (req, res) => {
   const base = `miniUrl`;
 
   const urlId = shortid.generate();
+
   if (utils.validateUrl(fullUrl)) {
     try {
       let foundUrl = await Url.findOne({ fullUrl }).select({
