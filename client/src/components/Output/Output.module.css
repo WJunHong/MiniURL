@@ -1,0 +1,13 @@
+.container {
+  height: fit-content;
+  width: fit-content;
+  margin-top: 10px;
+}
+.inputContainer {
+  width: 700px;
+  height: 100px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: flex-end;
+}
