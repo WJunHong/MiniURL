@@ -12,7 +12,7 @@ const app = express();
 // cors for cross-origin requests to the frontend application
 app.use(
   cors({
-    origin: ["http://locahost:3333", "https://mini-url-app.onrender.com"],
+    origin: ["http://locahost:3333", "https://mini-url-app-api.onrender.com"],
   })
 );
 // parse requests of content-type - application/json
