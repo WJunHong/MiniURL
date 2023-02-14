@@ -1,5 +1,6 @@
 .container {
   height: fit-content;
+  min-width: 250px;
 }
 
 .inputContainer {
@@ -8,17 +9,12 @@
   display: flex;
   margin: auto;
   align-items: center;
-  justify-content: space-around;
-}
-.textField {
-  width: 100%;
-  margin: 6px;
+  justify-content: space-evenly;
 }
 
 .button {
   height: 36px;
   width: 150px;
-  margin: 6px;
   font-weight: bold;
 }
 
@@ -45,6 +41,9 @@
   .textFieldContainer {
     width: 100%;
   }
+  .textField {
+    width: calc(100% - 12px);
+  }
   .buttonContainer {
     width: 100%;
   }
@@ -54,6 +53,9 @@
     width: 50%;
   }
   .textFieldContainer {
-    width: calc(100% - 162px);
+    width: calc(100% - 168px);
+  }
+  .textField {
+    width: 100%;
   }
 }

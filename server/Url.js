@@ -5,11 +5,11 @@ const UrlSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  origUrl: {
+  fullUrl: {
     type: String,
     required: true,
   },
-  shortUrl: {
+  miniUrl: {
     type: String,
     required: true,
   },

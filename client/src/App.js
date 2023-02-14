@@ -5,11 +5,12 @@ import { useState } from "react";
 
 const App = () => {
   const [output, setOutput] = useState("");
+  const [fullUrl, setFullUrl] = useState("");
 
   return (
     <div className="App">
-      <Input getOutput={setOutput} />
-      <Output miniUrl={output} />
+      <Input getOutput={setOutput} getFullUrl={setFullUrl} />
+      <Output miniUrl={output} fullUrl={fullUrl} />
     </div>
   );
 };

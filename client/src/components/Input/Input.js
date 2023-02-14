@@ -8,7 +8,7 @@ import axios from "axios";
 import validator from "validator";
 
 // Rendering the children inside the background div
-const Input = ({ getOutput }) => {
+const Input = ({ getOutput, getFullUrl }) => {
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
   const [label, setLabel] = useState("Shorten URL");
@@ -22,9 +22,11 @@ const Input = ({ getOutput }) => {
       return;
     }
     axios
-      .post("http://localhost:3333/short", { origUrl: url })
+      .post("http://localhost:3333/post/short", { fullUrl: url })
       .then((res) => {
-        getOutput(res);
+        console.log(res);
+        getOutput(res.data.miniUrl);
+        getFullUrl(res.data.fullUrl);
       })
       .catch((err) => {
         console.log(err.message);

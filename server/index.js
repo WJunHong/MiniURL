@@ -28,29 +28,31 @@ mongoose
   });
 
 // URL shortener endpoint
-app.post("/short", async (req, res) => {
-  console.log("HERE", req.body.url);
-  const { origUrl } = req.body;
-  const base = `http://localhost:3333`;
+app.post("/post/short", async (req, res) => {
+  const { fullUrl } = req.body;
+  const base = `miniUrl`;
 
   const urlId = shortid.generate();
-  if (utils.validateUrl(origUrl)) {
+  if (utils.validateUrl(fullUrl)) {
     try {
-      let url = await Url.findOne({ origUrl });
-      if (url) {
-        res.json(url);
+      let foundUrl = await Url.findOne({ fullUrl }).select({
+        miniUrl: 1,
+        fullUrl: 1,
+      });
+      if (foundUrl) {
+        console.log(foundUrl);
+        res.json(foundUrl);
       } else {
-        const shortUrl = `${base}/${urlId}`;
+        const miniUrl = `${base}/${urlId}`;
 
-        url = new Url({
-          origUrl,
-          shortUrl,
+        urlDoc = new Url({
+          fullUrl,
+          miniUrl,
           urlId,
-          date: new Date(),
         });
 
-        await url.save();
-        res.json(url);
+        await urlDoc.save();
+        res.json({ fullUrl: fullUrl, miniUrl: miniUrl });
       }
     } catch (err) {
       console.log(err);
@@ -65,9 +67,8 @@ app.post("/short", async (req, res) => {
 app.get("/:urlId", async (req, res) => {
   try {
     const url = await Url.findOne({ urlId: req.params.urlId });
-    console.log(url);
     if (url) {
-      return res.redirect(url.origUrl);
+      return res.redirect(url.fullUrl);
     } else res.status(404).json("Not found");
   } catch (err) {
     console.log(err);

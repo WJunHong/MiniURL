@@ -1,6 +1,7 @@
 .container {
   height: fit-content;
   margin-top: 10px;
+  min-width: 250px;
 }
 .outputContainer {
   width: 100%;
