@@ -72,21 +72,21 @@ app.post("/short", async (req, res) => {
   }
 });
 
-// redirect endpoint
-app.get("/:urlId", async (req, res) => {
-  try {
-    const url = await Url.findOne({ urlId: req.params.urlId });
-    console.log(url);
-    if (url) {
-      url.clicks++;
-      url.save();
-      return res.redirect(url.origUrl);
-    } else res.status(404).json("Not found");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json("Server Error");
-  }
-});
+// // redirect endpoint
+// app.get("/:urlId", async (req, res) => {
+//   try {
+//     const url = await Url.findOne({ urlId: req.params.urlId });
+//     console.log(url);
+//     if (url) {
+//       url.clicks++;
+//       url.save();
+//       return res.redirect(url.origUrl);
+//     } else res.status(404).json("Not found");
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json("Server Error");
+//   }
+// });
 
 // Port Listenning on 3333
 const PORT = process.env.PORT || 3333;

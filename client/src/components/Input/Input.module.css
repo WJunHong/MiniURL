@@ -1,0 +1,23 @@
+.container {
+  height: fit-content;
+  width: fit-content;
+}
+
+.inputContainer {
+  width: 700px;
+  height: 100px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: flex-end;
+}
+.inputField {
+  width: 500px;
+  margin: 6px;
+}
+
+.button {
+  height: 36px;
+  width: 150px;
+  margin: 6px;
+}
