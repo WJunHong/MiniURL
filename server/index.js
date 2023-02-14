@@ -11,7 +11,9 @@ dotenv.config();
 const app = express();
 // cors for cross-origin requests to the frontend application
 app.use(
-  cors({ origin: ["http://locahost:3333", "https://miniurl.onrender.com"] })
+  cors({
+    origin: ["http://locahost:3333", "https://mini-url-app.onrender.com"],
+  })
 );
 // parse requests of content-type - application/json
 app.use(express.json());
