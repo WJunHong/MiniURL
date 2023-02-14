@@ -1,7 +1,5 @@
 .container {
   height: fit-content;
-  width: 50%;
-  min-width: 400px;
 }
 
 .inputContainer {
@@ -12,8 +10,8 @@
   align-items: center;
   justify-content: space-around;
 }
-.inputField {
-  width: 60%;
+.textField {
+  width: 100%;
   margin: 6px;
 }
 
@@ -21,4 +19,41 @@
   height: 36px;
   width: 150px;
   margin: 6px;
+  font-weight: bold;
+}
+
+.buttonContainer {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.textFieldContainer {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 80%;
+  }
+  .inputContainer {
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+  .textFieldContainer {
+    width: 100%;
+  }
+  .buttonContainer {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 50%;
+  }
+  .textFieldContainer {
+    width: calc(100% - 162px);
+  }
 }

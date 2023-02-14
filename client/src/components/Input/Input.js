@@ -11,7 +11,7 @@ import validator from "validator";
 const Input = ({ getOutput }) => {
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
-  const [label, setLabel] = useState("Input URL");
+  const [label, setLabel] = useState("Shorten URL");
 
   const submitUrl = (e) => {
     e.preventDefault();
@@ -21,7 +21,6 @@ const Input = ({ getOutput }) => {
       setLabel("Bad URL format detected!");
       return;
     }
-    getOutput("testing 123");
     axios
       .post("http://localhost:3333/short", { origUrl: url })
       .then((res) => {
@@ -35,25 +34,29 @@ const Input = ({ getOutput }) => {
   return (
     <div className={styles.container}>
       <Paper elevation={3} className={styles.inputContainer}>
-        <TextField
-          id="standard-basic"
-          label={label}
-          variant="standard"
-          className={styles.inputField}
-          error={error}
-          onChange={(e) => {
-            setError(false);
-            setLabel("Input URL");
-            setUrl(e.target.value);
-          }}
-        />
-        <Button
-          variant="contained"
-          className={styles.button}
-          onClick={submitUrl}
-        >
-          Convert URL
-        </Button>
+        <div className={styles.textFieldContainer}>
+          <TextField
+            id="standard-basic"
+            label={label}
+            variant="standard"
+            className={styles.textField}
+            error={error}
+            onChange={(e) => {
+              setError(false);
+              setLabel("Shorten URL");
+              setUrl(e.target.value);
+            }}
+          />
+        </div>
+        <div className={styles.buttonContainer}>
+          <Button
+            variant="contained"
+            className={styles.button}
+            onClick={submitUrl}
+          >
+            Submit
+          </Button>
+        </div>
       </Paper>
     </div>
   );

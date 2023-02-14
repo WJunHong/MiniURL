@@ -27,17 +27,6 @@ mongoose
     console.log(err.message);
   });
 
-// get all saved URLs
-app.get("/all", async (req, res) => {
-  Url.find((error, data) => {
-    if (error) {
-      return next(error);
-    } else {
-      res.json(data);
-    }
-  });
-});
-
 // URL shortener endpoint
 app.post("/short", async (req, res) => {
   console.log("HERE", req.body.url);
