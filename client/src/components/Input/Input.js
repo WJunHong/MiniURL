@@ -21,8 +21,9 @@ const Input = ({ getOutput, getFullUrl }) => {
       setLabel("Bad URL format detected!");
       return;
     }
+    console.log(process.env);
     axios
-      .post("http://localhost:3333/post/short", { fullUrl: url })
+      .post(`${process.env.REACT_APP_CONN_URL}/post/short`, { fullUrl: url })
       .then((res) => {
         console.log(res);
         getOutput(res.data.miniUrl);

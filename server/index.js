@@ -30,7 +30,7 @@ mongoose
 // URL shortener endpoint
 app.post("/post/short", async (req, res) => {
   const { fullUrl } = req.body;
-  const base = `miniUrl`;
+  const base = process.env.CONN_URL;
 
   const urlId = shortid.generate();
 
