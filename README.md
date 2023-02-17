@@ -1,10 +1,10 @@
 # MiniURL
 
-Furious with copy pasting long URLs? Fret Not! With [miniUrl](https://mini-url-app.onrender.com), you can generate short and sweet URLs with the click of a button!
+Furious with copy pasting long URLs? Fret Not! With [miniUrl](https://m-url.onrender.com), you can generate short and sweet URLs with the click of a button!
 
 ## How to use
 
-1. Type or copy-paste the URL of your choice into the text box. Make sure the URL is of either http:// or https:// protocol, and is included in the input.
+1. Type or copy-paste the URL of your choice into the text box. Make sure the URL is of either http:// or https:// protocol. E.g. `https://www.twitch.com`, and not `www.twitch.com`
 2. Click **SUBMIT**
 3. Click your newly generated MiniURL, or copy it to save somewhere else!
 
@@ -51,10 +51,14 @@ A **client-server** architecture was utilized
     > MONGO_URI=\<connection>
     > CONN_URL=http://localhost:3000
 
-where connection is the connection string given for your MongoDB Atlas cluster.
+where connection is the connection string given for your MongoDB Atlas cluster, and PORT number is that of the frontend server.
 
 12. If all goes well, run the command `node index.js` to begin running your server. The image below would be what you should see if the server is established correctly.
     ![server_message](diagrams/server_message.png)
+
+## Testing code
+
+- To the code, enter the `/server` file and run `npm test`
 
 ## FAQ
 
