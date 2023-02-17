@@ -12,7 +12,7 @@ const app = express();
 // allows frontend to accept backend as origin
 app.use(
   cors({
-    origin: [process.env.CONN_URL],
+    origin: [`${process.env.CONN_URL}`],
   })
 );
 // parses json request and places inside req.body
