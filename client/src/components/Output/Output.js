@@ -1,14 +1,15 @@
-// Basic imports
 import React from "react";
 import styles from "./Output.module.css";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 
-// Rendering the children inside the background div
+// Output display of MiniUrl
 const Output = ({ miniUrl, fullUrl }) => {
+  // Copies the miniUrl to clipboard for user to easily paste into search bar
   const copyUrl = () => {
     navigator.clipboard.writeText(miniUrl);
   };
+
   return (
     <div className={styles.container}>
       <Paper elevation={3} className={styles.outputContainer}>

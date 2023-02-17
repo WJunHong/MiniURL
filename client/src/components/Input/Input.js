@@ -1,4 +1,3 @@
-// Basic imports
 import React, { useState } from "react";
 import styles from "./Input.module.css";
 import Paper from "@mui/material/Paper";
@@ -7,12 +6,13 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import validator from "validator";
 
-// Rendering the children inside the background div
+// Input component of the webpage
 const Input = ({ getOutput, getFullUrl }) => {
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
   const [label, setLabel] = useState("Shorten URL");
 
+  // Passes link information to backend
   const submitUrl = async (e) => {
     e.preventDefault();
     try {
@@ -30,7 +30,7 @@ const Input = ({ getOutput, getFullUrl }) => {
       getOutput(res.data.miniUrl);
       getFullUrl(res.data.fullUrl);
     } catch (err) {
-      res.status(401).json(err.message);
+      console.log(err.message);
     }
   };
 

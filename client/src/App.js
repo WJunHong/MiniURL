@@ -4,7 +4,9 @@ import Output from "./components/Output";
 import Header from "./components/Header";
 import { useState } from "react";
 
+// Main container component
 const App = () => {
+  // Passes information between sibling components
   const [output, setOutput] = useState("");
   const [fullUrl, setFullUrl] = useState("");
 

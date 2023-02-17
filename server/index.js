@@ -4,21 +4,21 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
 const Url = require("./Url");
-const utils = require("./util");
+const utils = require("./Utils/util");
 
 // configure dotenv
 dotenv.config();
 const app = express();
-// cors for cross-origin requests to the frontend application
+// allows frontend to accept backend as origin
 app.use(
   cors({
     origin: [process.env.CONN_URL],
   })
 );
-// parse requests of content-type - application/json
+// parses json request and places inside req.body
 app.use(express.json());
 
-// Database connection
+// Connect to Mongoose
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -31,7 +31,7 @@ mongoose
     console.log(err.message);
   });
 
-// URL shortener endpoint
+// Executes async callback function when a post request is received
 app.post("/post/short", async (req, res) => {
   const { fullUrl } = req.body;
   const base = process.env.CONN_URL;
@@ -68,7 +68,8 @@ app.post("/post/short", async (req, res) => {
   }
 });
 
-// redirect endpoint
+//  Executes async callback function when a get request is received for a specific mini url of urlId
+// :urlId comes from req.params.urlId, when a user visits the link
 app.get("/:urlId", async (req, res) => {
   try {
     const url = await Url.findOne({ urlId: req.params.urlId });
@@ -81,7 +82,7 @@ app.get("/:urlId", async (req, res) => {
   }
 });
 
-// Port Listenning on 3333
+// Listen on 3333 for development, and on whatever port is specified when in deployment
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
   console.log(`Server is running at PORT ${PORT}`);

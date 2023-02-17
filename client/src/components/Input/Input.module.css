@@ -12,13 +12,6 @@
   justify-content: space-evenly;
 }
 
-.button {
-  margin-top: 12px !important;
-  height: 36px;
-  width: 150px;
-  font-weight: bold;
-}
-
 .buttonContainer {
   height: 100px;
   display: flex;
@@ -31,6 +24,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.button {
+  margin-top: 12px !important;
+  height: 36px;
+  width: 150px;
+  font-weight: bold;
+}
+/* For mobile */
 @media only screen and (max-width: 600px) {
   .container {
     width: 80%;
@@ -49,6 +50,7 @@
     width: 100%;
   }
 }
+/* For larger screens */
 @media only screen and (min-width: 601px) {
   .container {
     width: 50%;
