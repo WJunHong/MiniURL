@@ -35,7 +35,7 @@ mongoose
 app.post("/post/short", async (req, res) => {
   const { fullUrl } = req.body;
   const base = process.env.SERVER_URL;
-
+  console.log(process.env);
   const urlId = shortid.generate();
 
   if (utils.validateUrl(fullUrl)) {
