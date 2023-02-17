@@ -13,25 +13,25 @@ const Input = ({ getOutput, getFullUrl }) => {
   const [error, setError] = useState(false);
   const [label, setLabel] = useState("Shorten URL");
 
-  const submitUrl = (e) => {
+  const submitUrl = async (e) => {
     e.preventDefault();
+    try {
+      if (!validator.isURL(url)) {
+        setError(true);
+        setLabel("Bad URL format detected!");
+        return;
+      }
 
-    if (!validator.isURL(url)) {
-      setError(true);
-      setLabel("Bad URL format detected!");
-      return;
+      let res = await axios.post(
+        `${process.env.REACT_APP_CONN_URL}/post/short`,
+        { fullUrl: url }
+      );
+      console.log(res);
+      getOutput(res.data.miniUrl);
+      getFullUrl(res.data.fullUrl);
+    } catch (err) {
+      res.status(401).json(err.message);
     }
-    console.log(process.env);
-    axios
-      .post(`${process.env.REACT_APP_CONN_URL}/post/short`, { fullUrl: url })
-      .then((res) => {
-        console.log(res);
-        getOutput(res.data.miniUrl);
-        getFullUrl(res.data.fullUrl);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
   };
 
   return (

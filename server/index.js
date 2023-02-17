@@ -12,7 +12,7 @@ const app = express();
 // cors for cross-origin requests to the frontend application
 app.use(
   cors({
-    origin: ["http://locahost:3333", "https://mini-url-app-api.onrender.com"],
+    origin: [process.env.CONN_URL],
   })
 );
 // parse requests of content-type - application/json
@@ -25,7 +25,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log(`Db Connected`);
+    console.log(`Connected to MongoDB`);
   })
   .catch((err) => {
     console.log(err.message);
@@ -74,7 +74,7 @@ app.get("/:urlId", async (req, res) => {
     const url = await Url.findOne({ urlId: req.params.urlId });
     if (url) {
       return res.redirect(url.fullUrl);
-    } else res.status(404).json("Not found");
+    } else res.status(404).json("Page not found!");
   } catch (err) {
     console.log(err);
     res.status(500).json("Server Error");
