@@ -48,8 +48,11 @@ A **client-server** architecture was utilized
 9. Next, navigate to the `/server` folder by running `cd ../server`.
 10. Similar to step 5, run `npm i` to install dependencies used.
 11. Add `.env` file with the following lines:
+
     > MONGO_URI=\<connection>
+
     > CONN_URL=http://localhost:3000
+
     > SERVER_URL=http://localhost:3333
 
 where connection is the connection string given for your MongoDB Atlas cluster.
