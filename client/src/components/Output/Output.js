@@ -14,7 +14,7 @@ const Output = ({ miniUrl, fullUrl }) => {
     <div className={styles.container}>
       <Paper elevation={3} className={styles.outputContainer}>
         <div>{!miniUrl ? "Create a MiniURL now!" : "MiniURL"}</div>
-        <a href={`${fullUrl}`} target="_blank">
+        <a href={`${fullUrl}`} target="_blank" rel="noreferrer">
           {miniUrl}
         </a>
         {miniUrl ? (
