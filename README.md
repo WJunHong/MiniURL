@@ -50,8 +50,9 @@ A **client-server** architecture was utilized
 11. Add `.env` file with the following lines:
     > MONGO_URI=\<connection>
     > CONN_URL=http://localhost:3000
+    > SERVER_URL=http://localhost:3333
 
-where connection is the connection string given for your MongoDB Atlas cluster, and PORT number is that of the frontend server.
+where connection is the connection string given for your MongoDB Atlas cluster.
 
 12. If all goes well, run the command `node index.js` to begin running your server. The image below would be what you should see if the server is established correctly.
     ![server_message](diagrams/server_message.png)

@@ -34,7 +34,7 @@ mongoose
 // Executes async callback function when a post request is received
 app.post("/post/short", async (req, res) => {
   const { fullUrl } = req.body;
-  const base = process.env.CONN_URL;
+  const base = process.env.SERVER_URL;
 
   const urlId = shortid.generate();
 
